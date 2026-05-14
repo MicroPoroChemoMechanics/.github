@@ -77,7 +77,7 @@ across the MicroPoroChemoMechanics stack.
 
 ---
 
-### [MeanFieldHom.jl](https://codeberg.org/MicroPoroChemoMechanics/MeanFieldHom.jl) — Mean-field homogenization
+### Coming soon — [MeanFieldHom.jl](https://codeberg.org/MicroPoroChemoMechanics/MeanFieldHom.jl) — Mean-field homogenization
 
 [![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/MeanFieldHom.jl/stable/)
 [![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/MeanFieldHom.jl/dev/)
