@@ -5,7 +5,7 @@
 
   _Julia ecosystem for the coupled chemo-mechanics of porous reactive media_
 
-  _Computational chemistry · Mean-field homogenisation · Adaptive cubature · Structured tensors · Reactive transport · Poromechanics_
+  _Computational chemistry · Mean-field homogenization · Adaptive cubature · Structured tensors · Reactive transport · Poromechanics_
 </div>
 
 ---
@@ -76,7 +76,7 @@ across the MicroPoroChemoMechanics stack.
 
 ---
 
-### [MeanFieldHom.jl](https://codeberg.org/MicroPoroChemoMechanics/MeanFieldHom.jl) — Mean-field homogenisation
+### [MeanFieldHom.jl](https://codeberg.org/MicroPoroChemoMechanics/MeanFieldHom.jl) — Mean-field homogenization
 
 [![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/MeanFieldHom.jl/stable/)
 [![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/MeanFieldHom.jl/dev/)
@@ -104,7 +104,7 @@ submodule for Legendre and Carlson elliptic integrals.
 
 A forthcoming package will integrate the chemistry stack
 (`ChemistryLab.jl` + `OptimaSolver.jl`) with effective-property
-predictions from mean-field homogenisation
+predictions from mean-field homogenization
 (`MeanFieldHom.jl` + `TensND.jl`) into a coupled reactive-transport /
 poromechanics framework, suitable for durability and degradation
 studies of cementitious and geological porous media. Repository to be
