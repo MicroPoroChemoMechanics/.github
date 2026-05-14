@@ -59,6 +59,7 @@ applicable more broadly.
 
 [![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/TensND.jl/stable/)
 [![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/TensND.jl/dev/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17985769.svg)](https://doi.org/10.5281/zenodo.17985769)
 
 Structured tensor types (`TensISO`, `TensWalpole`, `TensOrtho`, `TensTI`,
 …) with base-1 indexing and symmetry-aware storage. Tensor calculations
