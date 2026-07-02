@@ -19,21 +19,21 @@ with the [SciML](https://sciml.ai/) ecosystem (`Optimization`,
 `OrdinaryDiffEq`, `NonlinearSolve`, `Integrals`, …).
 
 The stack is released through the dedicated
-[**MPCM-Registry**](https://codeberg.org/MicroPoroChemoMechanics/MPCM-Registry).
+[**MPCM-Registry**](https://github.com/MicroPoroChemoMechanics/MPCM-Registry).
 Downstream users add the registry once before installing any package:
 
 ```julia
-pkg> registry add https://codeberg.org/MicroPoroChemoMechanics/MPCM-Registry
+pkg> registry add https://github.com/MicroPoroChemoMechanics/MPCM-Registry
 ```
 
 ---
 
 ## Packages
 
-### [ChemistryLab.jl](https://codeberg.org/MicroPoroChemoMechanics/ChemistryLab.jl) — Computational chemistry toolkit
+### [ChemistryLab.jl](https://github.com/MicroPoroChemoMechanics/ChemistryLab.jl) — Computational chemistry toolkit
 
-[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/ChemistryLab.jl/stable/)
-[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/ChemistryLab.jl/dev/)
+[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/ChemistryLab.jl/stable/)
+[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/ChemistryLab.jl/dev/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17756074.svg)](https://doi.org/10.5281/zenodo.17756074)
 
 Formula parsing, species and reaction handling, stoichiometric matrix
@@ -55,10 +55,10 @@ applicable more broadly.
 
 ---
 
-### [TensND.jl](https://codeberg.org/MicroPoroChemoMechanics/TensND.jl) — Structured tensor types
+### [TensND.jl](https://github.com/MicroPoroChemoMechanics/TensND.jl) — Structured tensor types
 
-[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/TensND.jl/stable/)
-[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/TensND.jl/dev/)
+[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/TensND.jl/stable/)
+[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/TensND.jl/dev/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17985769.svg)](https://doi.org/10.5281/zenodo.17985769)
 
 Structured tensor types (`TensISO`, `TensWalpole`, `TensOrtho`, `TensTI`,
@@ -77,10 +77,10 @@ across the MicroPoroChemoMechanics stack.
 
 ---
 
-### Coming soon — [MeanFieldHom.jl](https://codeberg.org/MicroPoroChemoMechanics/MeanFieldHom.jl) — Mean-field homogenization
+### Coming soon — [MeanFieldHom.jl](https://github.com/MicroPoroChemoMechanics/MeanFieldHom.jl) — Mean-field homogenization
 
-[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/MeanFieldHom.jl/stable/)
-[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/MeanFieldHom.jl/dev/)
+[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl/stable/)
+[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl/dev/)
 
 Hill polarisation tensors for ellipsoidal inclusions and infinite
 cylinders, crack-opening-displacement tensors with stress and
@@ -119,10 +119,10 @@ Lower-level libraries used internally by the main packages above. They
 are designed to be reusable in their own right and can be installed and
 cited standalone from the MPCM-Registry.
 
-### [OptimaSolver.jl](https://codeberg.org/MicroPoroChemoMechanics/OptimaSolver.jl) — Primal-dual interior-point solver
+### [OptimaSolver.jl](https://github.com/MicroPoroChemoMechanics/OptimaSolver.jl) — Primal-dual interior-point solver
 
-[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/OptimaSolver.jl/stable/)
-[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/OptimaSolver.jl/dev/)
+[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl/stable/)
+[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl/dev/)
 
 Julia-native primal-dual interior-point solver for Gibbs-energy
 minimisation under linear equality and bound constraints. Used by
@@ -142,10 +142,10 @@ Julia port of the Optima C++ library by Allan Leal (ETH Zürich).
 
 ---
 
-### [DECUHR.jl](https://codeberg.org/MicroPoroChemoMechanics/DECUHR.jl) — Adaptive cubature for vertex singularities
+### [DECUHR.jl](https://github.com/MicroPoroChemoMechanics/DECUHR.jl) — Adaptive cubature for vertex singularities
 
-[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/DECUHR.jl/stable/)
-[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.codeberg.page/DECUHR.jl/dev/)
+[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/DECUHR.jl/stable/)
+[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/DECUHR.jl/dev/)
 
 Pure-Julia port of the DECUHR algorithm (Espelid & Genz, 1994) for
 automatic adaptive integration of functions with **vertex
@@ -187,12 +187,12 @@ used outside the MPCM context.
 
 | Package           | Role     | Visibility | Registered (MPCM-Registry) | Documentation |
 |-------------------|----------|------------|----------------------------|---------------|
-| `ChemistryLab.jl` | main     | Public     | Yes                        | [docs](https://MicroPoroChemoMechanics.codeberg.page/ChemistryLab.jl) |
-| `TensND.jl`       | main     | Public     | Yes                        | [docs](https://MicroPoroChemoMechanics.codeberg.page/TensND.jl) |
-| `MeanFieldHom.jl` | main     | Public     | Yes                        | [docs](https://MicroPoroChemoMechanics.codeberg.page/MeanFieldHom.jl) |
+| `ChemistryLab.jl` | main     | Public     | Yes                        | [docs](https://MicroPoroChemoMechanics.github.io/ChemistryLab.jl) |
+| `TensND.jl`       | main     | Public     | Yes                        | [docs](https://MicroPoroChemoMechanics.github.io/TensND.jl) |
+| `MeanFieldHom.jl` | main     | Private (public release soon)     | Yes                        | [docs](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl) |
 | Reactive transport| main     | —          | Pending                    | —             |
-| `OptimaSolver.jl` | backend  | Public     | Yes                        | [docs](https://MicroPoroChemoMechanics.codeberg.page/OptimaSolver.jl) |
-| `DECUHR.jl`       | backend  | Public     | Yes                        | [docs](https://MicroPoroChemoMechanics.codeberg.page/DECUHR.jl) |
+| `OptimaSolver.jl` | backend  | Public     | Yes                        | [docs](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl) |
+| `DECUHR.jl`       | backend  | Public     | Yes                        | [docs](https://MicroPoroChemoMechanics.github.io/DECUHR.jl) |
 
 ---
 
@@ -200,7 +200,7 @@ used outside the MPCM context.
 
 ```julia
 using Pkg
-Pkg.Registry.add(RegistrySpec(url="https://codeberg.org/MicroPoroChemoMechanics/MPCM-Registry"))
+Pkg.Registry.add(RegistrySpec(url="https://github.com/MicroPoroChemoMechanics/MPCM-Registry"))
 Pkg.add(["ChemistryLab", "OptimaSolver", "MeanFieldHom", "DECUHR", "TensND"])
 
 # Compute a thermodynamic equilibrium (Portlandite dissolution)
@@ -219,8 +219,8 @@ P  = hill_tensor(Ellipsoid(1.0), C₀)
 
 ## Authors & Institution
 
-Developed by [**Jean-François Barthélémy**](https://codeberg.org/jfbarthelemy)
-and [**Anthony Soive**](https://codeberg.org/anthonysoive), both researchers at
+Developed by [**Jean-François Barthélémy**](https://github.com/jfbarthelemy)
+and [**Anthony Soive**](https://github.com/anthonysoive), both researchers at
 [Cerema](https://www.cerema.fr/en) in the research unit
 [UMR MCD](https://mcd.univ-gustave-eiffel.fr/). See each package's
 `CITATION.cff` for per-package authorship and contributors.
@@ -236,11 +236,11 @@ See the `LICENSE` file of each repository.
 
 **Main packages:**
 
-- [ChemistryLab.jl](https://codeberg.org/MicroPoroChemoMechanics/ChemistryLab.jl/src/branch/main/LICENSE) — LGPL-2.1-or-later
-- [TensND.jl](https://codeberg.org/MicroPoroChemoMechanics/TensND.jl/src/branch/main/LICENSE) — MIT
-- [MeanFieldHom.jl](https://codeberg.org/MicroPoroChemoMechanics/MeanFieldHom.jl/src/branch/main/LICENSE) — MIT
+- [ChemistryLab.jl](https://github.com/MicroPoroChemoMechanics/ChemistryLab.jl/blob/main/LICENSE) — LGPL-2.1-or-later
+- [TensND.jl](https://github.com/MicroPoroChemoMechanics/TensND.jl/blob/main/LICENSE) — MIT
+- [MeanFieldHom.jl](https://github.com/MicroPoroChemoMechanics/MeanFieldHom.jl/blob/main/LICENSE) — MIT
 
 **Backend dependencies:**
 
-- [OptimaSolver.jl](https://codeberg.org/MicroPoroChemoMechanics/OptimaSolver.jl/src/branch/main/LICENSE) — LGPL-2.1-or-later
-- [DECUHR.jl](https://codeberg.org/MicroPoroChemoMechanics/DECUHR.jl/src/branch/main/LICENSE) — MIT (Julia port; the upstream Fortran routines of Espelid & Genz carry their own copyright — see `NOTICE`)
+- [OptimaSolver.jl](https://github.com/MicroPoroChemoMechanics/OptimaSolver.jl/blob/main/LICENSE) — LGPL-2.1-or-later
+- [DECUHR.jl](https://github.com/MicroPoroChemoMechanics/DECUHR.jl/blob/main/LICENSE) — MIT (Julia port; the upstream Fortran routines of Espelid & Genz carry their own copyright — see `NOTICE`)
