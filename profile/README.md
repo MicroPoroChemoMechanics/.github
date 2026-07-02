@@ -34,7 +34,7 @@ pkg> registry add https://github.com/MicroPoroChemoMechanics/MPCM-Registry
 
 [![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/ChemistryLab.jl/stable/)
 [![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/ChemistryLab.jl/dev/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17756074.svg)](https://doi.org/10.5281/zenodo.17756074)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.17756074-blue)](https://doi.org/10.5281/zenodo.17756074)
 
 Formula parsing, species and reaction handling, stoichiometric matrix
 construction, thermodynamic equilibrium via Gibbs free energy
@@ -59,7 +59,7 @@ applicable more broadly.
 
 [![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/TensND.jl/stable/)
 [![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/TensND.jl/dev/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17985769.svg)](https://doi.org/10.5281/zenodo.17985769)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.17985768-blue)](https://doi.org/10.5281/zenodo.17985768)
 
 Structured tensor types (`TensISO`, `TensWalpole`, `TensOrtho`, `TensTI`,
 …) with base-1 indexing and symmetry-aware storage. Tensor calculations
