@@ -1,12 +1,12 @@
-<div align="center">
-  <img src="logo.svg" width="160" alt="MicroPoroChemoMechanics logo"/>
+# MicroPoroChemoMechanics
 
-  # MicroPoroChemoMechanics
+<p align="center">
+  <img src="./logo.svg" width="160" alt="MicroPoroChemoMechanics logo"/>
+</p>
 
-  _Julia ecosystem for the coupled chemo-mechanics of porous reactive media_
+_Julia ecosystem for the coupled chemo-mechanics of porous reactive media_
 
-  _Computational chemistry · Mean-field homogenization · Adaptive cubature · Structured tensors · Reactive transport · Poromechanics_
-</div>
+_Computational chemistry · Mean-field homogenization · Adaptive cubature · Structured tensors · Reactive transport · Poromechanics_
 
 ---
 
@@ -79,25 +79,7 @@ across the MicroPoroChemoMechanics stack.
 
 ### Coming soon — [MeanFieldHom.jl](https://github.com/MicroPoroChemoMechanics/MeanFieldHom.jl) — Mean-field homogenization
 
-[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl/stable/)
-[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl/dev/)
-
-Hill polarisation tensors for ellipsoidal inclusions and infinite
-cylinders, crack-opening-displacement tensors with stress and
-displacement intensity factors for flat (elliptic and ribbon) cracks,
-second-order Hill tensors for transport problems, and layered-sphere
-composite models — under a common abstraction hierarchy and dispatch
-mechanism. Also ships `MeanFieldHom.Elliptic`, an internal type-generic
-submodule for Legendre and Carlson elliptic integrals.
-
-| Feature | Details |
-|---|---|
-| **Elasticity** | Hill polarisation tensor (2D/3D, iso and aniso matrix) |
-| **Cracks** | COD tensor, SIF / DIF for elliptic and ribbon cracks |
-| **Conductivity** | 2nd-order Hill tensor for transport problems |
-| **Elliptic integrals** | Type-generic `K, E, F, R_F, R_D` (`Float64`, `Dual`, `BigFloat`, `Sym`, `Num`) |
-| **Algorithms** | Analytical, Masson-style residue, DECUHR adaptive cubature |
-| **AD** | ForwardDiff-compatible across every analytical and DECUHR path |
+This forthcoming package will allow to build mean-field homogenization schemes with various types of heterogeneities and behaviors.
 
 ---
 
