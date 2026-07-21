@@ -18,13 +18,10 @@ Every package is `ForwardDiff`-compatible, dimensionally aware via
 with the [SciML](https://sciml.ai/) ecosystem (`Optimization`,
 `OrdinaryDiffEq`, `NonlinearSolve`, `Integrals`, …).
 
-The stack is released through the dedicated
-[**MPCM-Registry**](https://github.com/MicroPoroChemoMechanics/MPCM-Registry).
-Downstream users add the registry once before installing any package:
-
-```julia
-pkg> registry add https://github.com/MicroPoroChemoMechanics/MPCM-Registry
-```
+The public packages (`TensND.jl`, `Decuhr.jl`, `OptimaSolver.jl`,
+`ChemistryLab.jl`) are registered in Julia's **General registry** and install
+with `Pkg.add`. `MeanFieldHom.jl` is currently private (public release
+planned).
 
 ---
 
@@ -99,7 +96,7 @@ announced.
 
 Lower-level libraries used internally by the main packages above. They
 are designed to be reusable in their own right and can be installed and
-cited standalone from the MPCM-Registry.
+cited standalone from the General registry.
 
 ### [OptimaSolver.jl](https://github.com/MicroPoroChemoMechanics/OptimaSolver.jl) — Primal-dual interior-point solver
 
@@ -167,14 +164,14 @@ used outside the MPCM context.
 
 ## Status
 
-| Package           | Role     | Visibility | Registered (MPCM-Registry) | Documentation |
-|-------------------|----------|------------|----------------------------|---------------|
-| `ChemistryLab.jl` | main     | Public     | Yes                        | [docs](https://MicroPoroChemoMechanics.github.io/ChemistryLab.jl) |
-| `TensND.jl`       | main     | Public     | Yes                        | [docs](https://MicroPoroChemoMechanics.github.io/TensND.jl) |
-| `MeanFieldHom.jl` | main     | Private (public release soon)     | Yes                        | [docs](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl) |
-| Reactive transport| main     | —          | Pending                    | —             |
-| `OptimaSolver.jl` | backend  | Public     | Yes                        | [docs](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl) |
-| `Decuhr.jl`       | backend  | Public     | Yes                        | [docs](https://MicroPoroChemoMechanics.github.io/Decuhr.jl) |
+| Package           | Role     | Visibility | Registered (General) | Documentation |
+|-------------------|----------|------------|----------------------|---------------|
+| `ChemistryLab.jl` | main     | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/ChemistryLab.jl) |
+| `TensND.jl`       | main     | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/TensND.jl) |
+| `MeanFieldHom.jl` | main     | Private (public release soon)     | No (private)         | [docs](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl) |
+| Reactive transport| main     | —          | Pending              | —             |
+| `OptimaSolver.jl` | backend  | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl) |
+| `Decuhr.jl`       | backend  | Public     | Pending              | [docs](https://MicroPoroChemoMechanics.github.io/Decuhr.jl) |
 
 ---
 
@@ -182,8 +179,7 @@ used outside the MPCM context.
 
 ```julia
 using Pkg
-Pkg.Registry.add(RegistrySpec(url="https://github.com/MicroPoroChemoMechanics/MPCM-Registry"))
-Pkg.add(["ChemistryLab", "OptimaSolver", "MeanFieldHom", "Decuhr", "TensND"])
+Pkg.add(["ChemistryLab", "OptimaSolver", "Decuhr", "TensND"])
 
 # Compute a thermodynamic equilibrium (Portlandite dissolution)
 using ChemistryLab, OptimaSolver
