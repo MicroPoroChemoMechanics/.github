@@ -18,7 +18,7 @@ Every package is `ForwardDiff`-compatible, dimensionally aware via
 with the [SciML](https://sciml.ai/) ecosystem (`Optimization`,
 `OrdinaryDiffEq`, `NonlinearSolve`, `Integrals`, …).
 
-The public packages (`TensND.jl`, `Decuhr.jl`, `OptimaSolver.jl`,
+The public packages (`TensND.jl`, `DECUHR.jl`, `OptimaSolver.jl`,
 `ChemistryLab.jl`) are registered in Julia's **General registry** and install
 with `Pkg.add`. `MeanFieldHom.jl` is currently private (public release
 planned).
@@ -121,10 +121,10 @@ Julia port of the Optima C++ library by Allan Leal (ETH Zürich).
 
 ---
 
-### [Decuhr.jl](https://github.com/MicroPoroChemoMechanics/Decuhr.jl) — Adaptive cubature for vertex singularities
+### [DECUHR.jl](https://github.com/MicroPoroChemoMechanics/DECUHR.jl) — Adaptive cubature for vertex singularities
 
-[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/Decuhr.jl/stable/)
-[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/Decuhr.jl/dev/)
+[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/DECUHR.jl/stable/)
+[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/DECUHR.jl/dev/)
 
 Pure-Julia port of the DECUHR algorithm (Espelid & Genz, 1994) for
 automatic adaptive integration of functions with **vertex
@@ -149,7 +149,7 @@ ChemistryLab.jl
   └── OptimaSolver.jl       (weakdep — equilibrium solver backend)
 
 MeanFieldHom.jl
-  ├── Decuhr.jl             (adaptive cubature backend)
+  ├── DECUHR.jl             (adaptive cubature backend)
   └── TensND.jl             (structured tensors)
 
 [future] Reactive transport package
@@ -157,7 +157,7 @@ MeanFieldHom.jl
   └── MeanFieldHom.jl       (effective transport properties)
 ```
 
-`TensND.jl`, `Decuhr.jl` and `OptimaSolver.jl` are standalone and can be
+`TensND.jl`, `DECUHR.jl` and `OptimaSolver.jl` are standalone and can be
 used outside the MPCM context.
 
 ---
@@ -171,7 +171,7 @@ used outside the MPCM context.
 | `MeanFieldHom.jl` | main     | Private (public release soon)     | No (private)         | [docs](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl) |
 | Reactive transport| main     | —          | Pending              | —             |
 | `OptimaSolver.jl` | backend  | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl) |
-| `Decuhr.jl`       | backend  | Public     | Pending              | [docs](https://MicroPoroChemoMechanics.github.io/Decuhr.jl) |
+| `DECUHR.jl`       | backend  | Public     | Pending              | [docs](https://MicroPoroChemoMechanics.github.io/DECUHR.jl) |
 
 ---
 
@@ -179,7 +179,7 @@ used outside the MPCM context.
 
 ```julia
 using Pkg
-Pkg.add(["ChemistryLab", "OptimaSolver", "Decuhr", "TensND"])
+Pkg.add(["ChemistryLab", "OptimaSolver", "DECUHR", "TensND"])
 
 # Compute a thermodynamic equilibrium (Portlandite dissolution)
 using ChemistryLab, OptimaSolver
@@ -221,4 +221,4 @@ See the `LICENSE` file of each repository.
 **Backend dependencies:**
 
 - [OptimaSolver.jl](https://github.com/MicroPoroChemoMechanics/OptimaSolver.jl/blob/main/LICENSE) — LGPL-2.1-or-later
-- [Decuhr.jl](https://github.com/MicroPoroChemoMechanics/Decuhr.jl/blob/main/LICENSE) — MIT (Julia port; the upstream Fortran routines of Espelid & Genz carry their own copyright — see `NOTICE`)
+- [DECUHR.jl](https://github.com/MicroPoroChemoMechanics/DECUHR.jl/blob/main/LICENSE) — MIT (Julia port; the upstream Fortran routines of Espelid & Genz carry their own copyright — see `NOTICE`)
