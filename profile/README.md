@@ -18,10 +18,10 @@ Every package is `ForwardDiff`-compatible, dimensionally aware via
 with the [SciML](https://sciml.ai/) ecosystem (`Optimization`,
 `OrdinaryDiffEq`, `NonlinearSolve`, `Integrals`, …).
 
-The public packages (`TensND.jl`, `DECUHR.jl`, `OptimaSolver.jl`,
-`ChemistryLab.jl`) are registered in Julia's **General registry** and install
-with `Pkg.add`. `MeanFieldHom.jl` is currently private (public release
-planned).
+The packages `TensND.jl`, `DECUHR.jl`, `OptimaSolver.jl` and `ChemistryLab.jl`
+are registered in Julia's **General registry** and install with `Pkg.add`.
+`MeanFieldHom.jl` is public but not yet registered — install it from GitHub
+with `Pkg.add(url = "https://github.com/MicroPoroChemoMechanics/MeanFieldHom.jl")`.
 
 ---
 
@@ -168,7 +168,7 @@ used outside the MPCM context.
 |-------------------|----------|------------|----------------------|---------------|
 | `ChemistryLab.jl` | main     | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/ChemistryLab.jl) |
 | `TensND.jl`       | main     | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/TensND.jl) |
-| `MeanFieldHom.jl` | main     | Private (public release soon)     | No (private)         | [docs](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl) |
+| `MeanFieldHom.jl` | main     | Public     | No (install from GitHub) | [docs](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl) |
 | Reactive transport| main     | —          | Pending              | —             |
 | `OptimaSolver.jl` | backend  | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl) |
 | `DECUHR.jl`       | backend  | Public     | Pending              | [docs](https://MicroPoroChemoMechanics.github.io/DECUHR.jl) |
