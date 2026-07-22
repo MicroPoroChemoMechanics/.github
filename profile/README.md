@@ -4,7 +4,7 @@
   <img src="https://github.com/MicroPoroChemoMechanics/.github/blob/main/profile/logo.svg?raw=true" width="160" alt="MicroPoroChemoMechanics logo"/>
 </p>
 
-_Julia ecosystem for the coupled chemo-mechanics of porous reactive media_
+_Julia ecosystem for the coupled micro-chemo-mechanics of porous reactive media_
 
 _Computational chemistry · Mean-field homogenization · Adaptive cubature · Structured tensors · Reactive transport · Poromechanics_
 
