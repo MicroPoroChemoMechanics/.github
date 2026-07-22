@@ -1,7 +1,7 @@
 # MicroPoroChemoMechanics
 
 <p align="center">
-  <img src="./logo.svg" width="160" alt="MicroPoroChemoMechanics logo"/>
+  <img src="https://github.com/MicroPoroChemoMechanics/.github/blob/main/profile/logo.svg?raw=true" width="160" alt="MicroPoroChemoMechanics logo"/>
 </p>
 
 _Julia ecosystem for the coupled chemo-mechanics of porous reactive media_
