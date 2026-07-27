@@ -74,9 +74,30 @@ across the MicroPoroChemoMechanics stack.
 
 ---
 
-### Coming soon — [MeanFieldHom.jl](https://github.com/MicroPoroChemoMechanics/MeanFieldHom.jl) — Mean-field homogenization
+### [MeanFieldHom.jl](https://github.com/MicroPoroChemoMechanics/MeanFieldHom.jl) — Mean-field homogenization
 
-This forthcoming package will allow to build mean-field homogenization schemes with various types of heterogeneities and behaviors.
+[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl/stable/)
+[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl/dev/)
+
+Effective properties of heterogeneous materials by mean-field homogenization.
+Hill polarization tensors for ellipsoidal inclusions and infinite cylinders
+(2-D and 3-D, isotropic to fully anisotropic matrices), crack-opening
+displacement and compliance tensors with stress/displacement intensity factors
+for flat cracks, second-order Hill tensors for transport, composite `n`-layer
+spheres and confocal spheroids with imperfect interfaces, and ageing linear
+viscoelasticity — all behind a common abstraction hierarchy and a single
+dispatch mechanism. Generic over the scalar type: `Float64`, `BigFloat`,
+`ForwardDiff.Dual` and symbolic (`SymPy`, `Symbolics`) throughout.
+
+| Feature | Details |
+|---|---|
+| **Hill / Eshelby** | Ellipsoids, spheroids, spheres, infinite cylinders, 2-D plane strain; closed forms for isotropic and coaxial transversely isotropic matrices |
+| **Anisotropy** | Masson residue reduction and DECUHR adaptive cubature for arbitrary anisotropy; **closed form for any anisotropy** in transport (order-2) |
+| **Cracks** | COD tensor, compliance contribution, dilute correction via Budiansky density, SIF/DIF and mode decomposition; spring-like interfaces |
+| **Composite inclusions** | `n`-layer spheres (Hervé–Zaoui) and confocal spheroids; Kapitza and surface-conductive imperfect interfaces; equivalent-particle conductivity |
+| **Schemes** | Voigt/Reuss and Hashin–Shtrikman bounds, dilute, Mori–Tanaka, self-consistent, Ponte Castañeda–Willis, Maxwell, differential with loading paths |
+| **Viscoelasticity** | Ageing linear viscoelasticity via Volterra operators, with structured iso/TI/ortho kernel storage |
+| **AD & symbolics** | ForwardDiff-compatible end-to-end; sensitivities through self-consistent fixed points by implicit differentiation |
 
 ---
 
