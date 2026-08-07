@@ -16,7 +16,7 @@
   <circle cx="165" cy="400" r="115" fill="#9558B2"/>
   <circle cx="165" cy="400" r="58" fill="#FFFFFF"/>
   <path d="M 113 375 Q 165 418 217 375 A 58 58 0 1 1 113 375 Z" fill="#4063D8"/>
-  <!-- homogeneisation (MeanFieldHom : inclusions variees) -->
+  <!-- homogeneisation (MeanFieldHomogenization : inclusions variees) -->
   <circle cx="435" cy="400" r="115" fill="#389826"/>
   <ellipse cx="410" cy="368" rx="46" ry="14" fill="#FFFFFF" transform="rotate(-25 410 368)"/>
   <circle cx="472" cy="415" r="22" fill="#FFFFFF"/>

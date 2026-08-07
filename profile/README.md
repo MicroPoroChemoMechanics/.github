@@ -18,10 +18,9 @@ Every package is `ForwardDiff`-compatible, dimensionally aware via
 with the [SciML](https://sciml.ai/) ecosystem (`Optimization`,
 `OrdinaryDiffEq`, `NonlinearSolve`, `Integrals`, …).
 
-The packages `TensND.jl`, `DECUHR.jl`, `OptimaSolver.jl` and `ChemistryLab.jl`
-are registered in Julia's **General registry** and install with `Pkg.add`.
-`MeanFieldHom.jl` is public but not yet registered — install it from GitHub
-with `Pkg.add(url = "https://github.com/MicroPoroChemoMechanics/MeanFieldHom.jl")`.
+The packages `TensND.jl`, `DECUHR.jl`, `OptimaSolver.jl`, `ChemistryLab.jl`
+and `MeanFieldHomogenizationogenization.jl` are registered in Julia's **General registry**
+and install with `Pkg.add`.
 
 ---
 
@@ -74,10 +73,10 @@ across the MicroPoroChemoMechanics stack.
 
 ---
 
-### [MeanFieldHom.jl](https://github.com/MicroPoroChemoMechanics/MeanFieldHom.jl) — Mean-field homogenization
+### [MeanFieldHomogenization.jl](https://github.com/MicroPoroChemoMechanics/MeanFieldHomogenization.jl) — Mean-field homogenization
 
-[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl/stable/)
-[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl/dev/)
+[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/MeanFieldHomogenization.jl/stable/)
+[![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/MeanFieldHomogenization.jl/dev/)
 
 Effective properties of heterogeneous materials by mean-field homogenization.
 Hill polarization tensors for ellipsoidal inclusions and infinite cylinders
@@ -106,7 +105,7 @@ dispatch mechanism. Generic over the scalar type: `Float64`, `BigFloat`,
 A forthcoming package will integrate the chemistry stack
 (`ChemistryLab.jl` + `OptimaSolver.jl`) with effective-property
 predictions from mean-field homogenization
-(`MeanFieldHom.jl` + `TensND.jl`) into a coupled reactive-transport /
+(`MeanFieldHomogenization.jl` + `TensND.jl`) into a coupled reactive-transport /
 poromechanics framework, suitable for durability and degradation
 studies of cementitious and geological porous media. Repository to be
 announced.
@@ -150,7 +149,7 @@ Julia port of the Optima C++ library by Allan Leal (ETH Zürich).
 Pure-Julia port of the DECUHR algorithm (Espelid & Genz, 1994) for
 automatic adaptive integration of functions with **vertex
 singularities** over hyper-rectangular regions. Used by
-`MeanFieldHom.jl` as the adaptive-cubature backend for the anisotropic
+`MeanFieldHomogenization.jl` as the adaptive-cubature backend for the anisotropic
 Hill and crack kernels. Exposed as a pluggable algorithm for the SciML
 [Integrals.jl](https://docs.sciml.ai/Integrals/stable/) solver stack.
 
@@ -169,13 +168,13 @@ Hill and crack kernels. Exposed as a pluggable algorithm for the SciML
 ChemistryLab.jl
   └── OptimaSolver.jl       (weakdep — equilibrium solver backend)
 
-MeanFieldHom.jl
+MeanFieldHomogenization.jl
   ├── DECUHR.jl             (adaptive cubature backend)
   └── TensND.jl             (structured tensors)
 
 [future] Reactive transport package
-  ├── ChemistryLab.jl       (equilibrium + kinetics)
-  └── MeanFieldHom.jl       (effective transport properties)
+  ├── ChemistryLab.jl                  (equilibrium + kinetics)
+  └── MeanFieldHomogenization.jl       (effective transport properties)
 ```
 
 `TensND.jl`, `DECUHR.jl` and `OptimaSolver.jl` are standalone and can be
@@ -189,7 +188,7 @@ used outside the MPCM context.
 |-------------------|----------|------------|----------------------|---------------|
 | `ChemistryLab.jl` | main     | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/ChemistryLab.jl) |
 | `TensND.jl`       | main     | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/TensND.jl) |
-| `MeanFieldHom.jl` | main     | Public     | No (install from GitHub) | [docs](https://MicroPoroChemoMechanics.github.io/MeanFieldHom.jl) |
+| `MeanFieldHomogenizationogenization.jl` | main | Public | Yes | [docs](https://MicroPoroChemoMechanics.github.io/MeanFieldHomogenizationogenization.jl) |
 | Reactive transport| main     | —          | Pending              | —             |
 | `OptimaSolver.jl` | backend  | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl) |
 | `DECUHR.jl`       | backend  | Public     | Pending              | [docs](https://MicroPoroChemoMechanics.github.io/DECUHR.jl) |
@@ -207,7 +206,7 @@ using ChemistryLab, OptimaSolver
 # … see ChemistryLab.jl documentation for full examples
 
 # Compute a Hill polarisation tensor for a sphere in an isotropic matrix
-using MeanFieldHom, TensND
+using MeanFieldHomogenization, TensND
 E, ν = 210e3, 0.3
 λ = E * ν / ((1 + ν) * (1 - 2ν));  μ = E / (2 * (1 + ν))
 C₀ = TensISO{3}(3 * (λ + 2μ / 3), 2μ)
@@ -237,7 +236,7 @@ See the `LICENSE` file of each repository.
 
 - [ChemistryLab.jl](https://github.com/MicroPoroChemoMechanics/ChemistryLab.jl/blob/main/LICENSE) — LGPL-2.1-or-later
 - [TensND.jl](https://github.com/MicroPoroChemoMechanics/TensND.jl/blob/main/LICENSE) — MIT
-- [MeanFieldHom.jl](https://github.com/MicroPoroChemoMechanics/MeanFieldHom.jl/blob/main/LICENSE) — MIT
+- [MeanFieldHomogenization.jl](https://github.com/MicroPoroChemoMechanics/MeanFieldHomogenization.jl/blob/main/LICENSE) — MIT
 
 **Backend dependencies:**
 
