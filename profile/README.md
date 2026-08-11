@@ -19,7 +19,7 @@ with the [SciML](https://sciml.ai/) ecosystem (`Optimization`,
 `OrdinaryDiffEq`, `NonlinearSolve`, `Integrals`, …).
 
 The packages `TensND.jl`, `DECUHR.jl`, `OptimaSolver.jl`, `ChemistryLab.jl`
-and `MeanFieldHomogenizationogenization.jl` are registered in Julia's **General registry**
+and `MeanFieldHomogenization.jl` are registered in Julia's **General registry**
 and install with `Pkg.add`.
 
 ---
@@ -77,6 +77,7 @@ across the MicroPoroChemoMechanics stack.
 
 [![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/MeanFieldHomogenization.jl/stable/)
 [![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/MeanFieldHomogenization.jl/dev/)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21884243-blue)](https://doi.org/10.5281/zenodo.21884243)
 
 Effective properties of heterogeneous materials by mean-field homogenization.
 Hill polarization tensors for ellipsoidal inclusions and infinite cylinders
@@ -188,7 +189,7 @@ used outside the MPCM context.
 |-------------------|----------|------------|----------------------|---------------|
 | `ChemistryLab.jl` | main     | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/ChemistryLab.jl) |
 | `TensND.jl`       | main     | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/TensND.jl) |
-| `MeanFieldHomogenizationogenization.jl` | main | Public | Yes | [docs](https://MicroPoroChemoMechanics.github.io/MeanFieldHomogenizationogenization.jl) |
+| `MeanFieldHomogenization.jl` | main | Public | Yes | [docs](https://MicroPoroChemoMechanics.github.io/MeanFieldHomogenization.jl) |
 | Reactive transport| main     | —          | Pending              | —             |
 | `OptimaSolver.jl` | backend  | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl) |
 | `DECUHR.jl`       | backend  | Public     | Pending              | [docs](https://MicroPoroChemoMechanics.github.io/DECUHR.jl) |
