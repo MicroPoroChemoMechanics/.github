@@ -65,10 +65,12 @@ across the MicroPoroChemoMechanics stack.
 
 | Feature | Details |
 |---|---|
-| **Tensors** | `TensISO`, `TensWalpole`, `TensTI`, `TensOrtho`, generic `Tens` |
+| **Tensors** | `TensISO`, `TensWalpole`, `TensTI`, `TensOrtho`, generic `Tens` — symmetry-aware storage with closed-form products and inverses |
 | **Bases** | Canonical, rotated, orthogonal, general (non-orthogonal, symbolic) |
-| **Coord. systems** | Cartesian, polar, cylindrical, spherical, spheroidal |
-| **Differential ops** | `GRAD`, `DIV`, `LAPLACE`, `HESSIAN` via Christoffel symbols |
+| **Coord. systems** | Cartesian, polar, cylindrical, spherical, spheroidal, user-defined |
+| **Differential ops** | `GRAD`, `SYMGRAD`, `DIV`, `LAPLACE`, `HESS` via Christoffel symbols, symbolic or by AD |
+| **Symmetry projection** | Closest ISO / TI / ORTHO tensor, orientation given or optimized |
+| **Submanifolds** | Embedded hypersurfaces with fundamental forms, connection and curvatures |
 | **AD** | ForwardDiff-compatible end-to-end |
 
 ---
@@ -84,10 +86,14 @@ Hill polarization tensors for ellipsoidal inclusions and infinite cylinders
 (2-D and 3-D, isotropic to fully anisotropic matrices), crack-opening
 displacement and compliance tensors with stress/displacement intensity factors
 for flat cracks, second-order Hill tensors for transport, composite `n`-layer
-spheres and confocal spheroids with imperfect interfaces, and ageing linear
-viscoelasticity — all behind a common abstraction hierarchy and a single
-dispatch mechanism. Generic over the scalar type: `Float64`, `BigFloat`,
-`ForwardDiff.Dual` and symbolic (`SymPy`, `Symbolics`) throughout.
+spheres and confocal spheroids with imperfect interfaces, periodic laminates,
+and ageing linear viscoelasticity — all behind a common abstraction hierarchy
+and a single dispatch mechanism. Beyond the one-site picture: **N-body schemes**
+on assemblies that carry positions, inclusions solved by **finite elements** or
+by a trained **neural surrogate**, and homogenization exposed as a
+**constitutive law** to a structural FE code. Generic over the scalar type:
+`Float64`, `BigFloat`, `ForwardDiff.Dual` and symbolic (`SymPy`, `Symbolics`)
+throughout.
 
 | Feature | Details |
 |---|---|
@@ -95,9 +101,13 @@ dispatch mechanism. Generic over the scalar type: `Float64`, `BigFloat`,
 | **Anisotropy** | Masson residue reduction and DECUHR adaptive cubature for arbitrary anisotropy; **closed form for any anisotropy** in transport (order-2) |
 | **Cracks** | COD tensor, compliance contribution, dilute correction via Budiansky density, SIF/DIF and mode decomposition; spring-like interfaces |
 | **Composite inclusions** | `n`-layer spheres (Hervé–Zaoui) and confocal spheroids; Kapitza and surface-conductive imperfect interfaces; equivalent-particle conductivity |
-| **Schemes** | Voigt/Reuss and Hashin–Shtrikman bounds, dilute, Mori–Tanaka, self-consistent, Ponte Castañeda–Willis, Maxwell, differential with loading paths |
+| **Schemes** | Voigt/Reuss and Hashin–Shtrikman bounds, dilute, Mori–Tanaka, self-consistent, Ponte Castañeda–Willis, Maxwell, differential with loading paths; exact laminates |
+| **N-body** | Two-inclusion interaction tensor; cluster model (Molinari & El Mouden) and equivalent inclusion method (Brisard, Dormieux & Sab) on particle assemblies, with rigorous bounds |
+| **Open morphologies** | User-defined inclusion contract; Eshelby problem solved by Ferrite / Gridap finite elements, or by a differentiable trained surrogate |
+| **Poromechanics & FE coupling** | Biot tensor and skeleton modulus; a microstructure as a Gauss-point material law returning stress, consistent tangent and an aperture-driven permeability |
 | **Viscoelasticity** | Ageing linear viscoelasticity via Volterra operators, with structured iso/TI/ortho kernel storage |
 | **AD & symbolics** | ForwardDiff-compatible end-to-end; sensitivities through self-consistent fixed points by implicit differentiation |
+| **Tooling** | MFH Studio, a local browser interface that writes and runs the model script for you |
 
 ---
 
@@ -192,7 +202,7 @@ used outside the MPCM context.
 | `MeanFieldHomogenization.jl` | main | Public | Yes | [docs](https://MicroPoroChemoMechanics.github.io/MeanFieldHomogenization.jl) |
 | Reactive transport| main     | —          | Pending              | —             |
 | `OptimaSolver.jl` | backend  | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl) |
-| `DECUHR.jl`       | backend  | Public     | Pending              | [docs](https://MicroPoroChemoMechanics.github.io/DECUHR.jl) |
+| `DECUHR.jl`       | backend  | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/DECUHR.jl) |
 
 ---
 
@@ -200,7 +210,8 @@ used outside the MPCM context.
 
 ```julia
 using Pkg
-Pkg.add(["ChemistryLab", "OptimaSolver", "DECUHR", "TensND"])
+Pkg.add(["ChemistryLab", "OptimaSolver", "DECUHR", "TensND",
+         "MeanFieldHomogenization"])
 
 # Compute a thermodynamic equilibrium (Portlandite dissolution)
 using ChemistryLab, OptimaSolver
@@ -208,9 +219,7 @@ using ChemistryLab, OptimaSolver
 
 # Compute a Hill polarisation tensor for a sphere in an isotropic matrix
 using MeanFieldHomogenization, TensND
-E, ν = 210e3, 0.3
-λ = E * ν / ((1 + ν) * (1 - 2ν));  μ = E / (2 * (1 + ν))
-C₀ = TensISO{3}(3 * (λ + 2μ / 3), 2μ)
+C₀ = iso_stiffness_E_nu(210e3, 0.3)
 P  = hill_tensor(Ellipsoid(1.0), C₀)
 ```
 
