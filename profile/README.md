@@ -35,7 +35,7 @@ registered yet and installs from its repository URL.
 
 Formula parsing, species and reaction handling, stoichiometric matrix
 construction, thermodynamic equilibrium via Gibbs free energy
-minimisation, dilute-solution / Debye-Hückel / Davies activity models,
+minimization, dilute-solution / Debye-Hückel / Davies activity models,
 ideal and Redlich-Kister solid solutions, kinetics (Parrot–Killoh and
 transition-state theory), and interoperability with **ThermoFun JSON**
 and **PHREEQC** databases. Initially focused on cement chemistry but
@@ -43,7 +43,7 @@ applicable more broadly.
 
 | Feature | Details |
 |---|---|
-| **Equilibrium** | Gibbs minimisation under mass-balance constraints |
+| **Equilibrium** | Gibbs minimization under mass-balance constraints |
 | **Activity models** | Dilute solution; HKF aqueous solutes |
 | **Solid solutions** | Ideal mix, Redlich-Kister (cement-data-18 calibrated) |
 | **Kinetics** | TST, Parrot–Killoh for cement clinkers; coupled to OrdinaryDiffEq |
@@ -157,9 +157,10 @@ cited standalone from the General registry.
 
 [![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl/stable/)
 [![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl/dev/)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19534031-blue)](https://doi.org/10.5281/zenodo.19534031)
 
 Julia-native primal-dual interior-point solver for Gibbs-energy
-minimisation under linear equality and bound constraints. Used by
+minimization under linear equality and bound constraints. Used by
 `ChemistryLab.jl` as the default equilibrium solver. Schur-complement
 Newton steps exploit the diagonal Hessian structure; filter-based line
 search (Wächter & Biegler 2006); implicit differentiation provides
@@ -180,6 +181,7 @@ Julia port of the Optima C++ library by Allan Leal (ETH Zürich).
 
 [![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/DECUHR.jl/stable/)
 [![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/DECUHR.jl/dev/)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22878393-blue)](https://doi.org/10.5281/zenodo.22878393)
 
 Pure-Julia port of the DECUHR algorithm (Espelid & Genz, 1994) for
 automatic adaptive integration of functions with **vertex
