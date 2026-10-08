@@ -35,11 +35,11 @@ registered yet and installs from its repository URL.
 
 Formula parsing, species and reaction handling, stoichiometric matrix
 construction, thermodynamic equilibrium via Gibbs free energy
-minimization, dilute-solution / Debye-Hückel / Davies activity models,
-ideal and Redlich-Kister solid solutions, kinetics (Parrot–Killoh and
-transition-state theory), and interoperability with **ThermoFun JSON**
-and **PHREEQC** databases. Initially focused on cement chemistry but
-applicable more broadly.
+minimization, activity models up to SIT and Pitzer, ideal and
+Redlich-Kister solid solutions, kinetics (Parrott–Killoh and
+transition-state theory), and the import of thermodynamic databases in
+the formats in common use, none stored in the package. Initially focused
+on cement chemistry but applicable more broadly.
 
 | Feature | Details |
 |---|---|
@@ -140,7 +140,7 @@ leaving this package to describe transport and mechanics.
 | **Solute transport** | Fick diffusion; Nernst–Planck multi-ionic transport closed by an electroneutrality constraint; Oh–Jang tortuosity for effective diffusivity |
 | **Non-isothermal drying** | Liquid water, dry air and heat coupled through a modified Kelvin equation and an entropy balance, with latent-heat transport by vapour |
 | **Poromechanics** | Biot poroelasticity on unstructured meshes, assembled once and reused across time steps |
-| **Reactive transport** | Operator splitting (SNIA) with cemdata18 equilibrium via `ChemistryLab.jl`; Friedel's salt binding; surface complexation on C-S-H |
+| **Reactive transport** | Operator splitting (SNIA) with the equilibrium of `ChemistryLab.jl`; Friedel's salt binding; surface complexation on C-S-H |
 | **Model interface** | `storage!` / `flux!` / `bcondition!` / `reaction!` for finite volumes, `element_matrices!` / `facet_load!` for finite elements |
 | **AD** | ForwardDiff-differentiated callbacks; no hand-written Jacobians, Newton loop and adaptive time stepping owned by the solver |
 | **Examples** | One worked problem per physics, each with its equations, material data and reference solution |
