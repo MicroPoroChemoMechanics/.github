@@ -153,27 +153,27 @@ Lower-level libraries used internally by the main packages above. They
 are designed to be reusable in their own right and can be installed and
 cited standalone from the General registry.
 
-### [OptimaSolver.jl](https://github.com/MicroPoroChemoMechanics/OptimaSolver.jl) — Primal-dual interior-point solver
+### [OptimaSolver.jl](https://github.com/MicroPoroChemoMechanics/OptimaSolver.jl) — Certified Gibbs-energy minimization
 
 [![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl/stable/)
 [![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl/dev/)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19534031-blue)](https://doi.org/10.5281/zenodo.19534031)
 
-Julia-native primal-dual interior-point solver for Gibbs-energy
-minimization under linear equality and bound constraints. Used by
-`ChemistryLab.jl` as the default equilibrium solver. Schur-complement
-Newton steps exploit the diagonal Hessian structure; filter-based line
-search (Wächter & Biegler 2006); implicit differentiation provides
-post-solve sensitivities (`∂n*/∂b`, `∂n*/∂(μ⁰/RT)`); warm-start support.
-Julia port of the Optima C++ library by Allan Leal (ETH Zürich).
+Gibbs-energy minimization under linear mass balances, by two solvers: a
+log-barrier interior-point method ported from the Optima C++ library by
+Allan Leal (ETH Zürich), and a Newton method on the optimality conditions in
+the space of the conservation multipliers, original to the package, whose
+answers a KKT certificate checks. The default equilibrium backend of
+`ChemistryLab.jl`.
 
 | Feature | Details |
 |---|---|
-| **Method** | Primal-dual interior-point with filter line search |
-| **Newton step** | Schur-complement reduction (`m×m` instead of `(ns+m)×(ns+m)`) |
-| **Sensitivities** | Implicit differentiation, ForwardDiff-compatible |
-| **Warm start** | Persistent cache between solves |
-| **SciML** | `OptimaOptimizer <: AbstractOptimizer` |
+| **Interior point** | Ported from Optima: Schur-complement Newton step, stability classification, sensitivities; filter line search (Wächter & Biegler 2006) |
+| **Multiplier-space Newton** | Pure phases in an exact active set, mixing phases recovered from their mass-action laws |
+| **Certificate** | `kkt_certificate` proves the global minimum of a convex problem, whatever produced the point |
+| **Phase stability** | Michelsen's tangent-plane tests, for absent and for present mixing phases |
+| **Derivatives** | ForwardDiff through both solvers; the answer's by the implicit-function theorem |
+| **SciML** | `OptimaOptimizer <: SciMLBase.AbstractOptimizationAlgorithm` |
 
 ---
 
