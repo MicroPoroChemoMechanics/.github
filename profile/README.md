@@ -11,7 +11,7 @@ _Computational chemistry · Mean-field homogenization · Adaptive cubature · St
 ---
 
 **MicroPoroChemoMechanics** is a family of Julia packages for the
-multiscale modelling of porous reactive materials — from molecular-level
+multiscale modeling of porous reactive materials — from molecular-level
 thermodynamic equilibrium to macroscopic poromechanical response.
 Every package is `ForwardDiff`-compatible, dimensionally aware via
 `DynamicQuantities` where relevant, and designed to compose cleanly
@@ -123,7 +123,7 @@ and poromechanics — on two numerical backends: **finite volumes**
 **finite elements** ([Ferrite.jl](https://github.com/Ferrite-FEM/Ferrite.jl))
 for coupled mechanics. A physics model is a plain Julia struct holding its
 material parameters; multiple dispatch on that struct selects the constitutive
-behaviour, so a model file stays a description of its own equations and knows
+behavior, so a model file stays a description of its own equations and knows
 nothing about time stepping or assembly. Jacobians are never written by hand:
 the finite-volume callbacks are differentiated with `ForwardDiff`.
 
@@ -138,7 +138,7 @@ leaving this package to describe transport and mechanics.
 |---|---|
 | **Unsaturated flow** | Richards' equation with Van Genuchten retention and Mualem relative permeability; transient Darcy flow |
 | **Solute transport** | Fick diffusion; Nernst–Planck multi-ionic transport closed by an electroneutrality constraint; Oh–Jang tortuosity for effective diffusivity |
-| **Non-isothermal drying** | Liquid water, dry air and heat coupled through a modified Kelvin equation and an entropy balance, with latent-heat transport by vapour |
+| **Non-isothermal drying** | Liquid water, dry air and heat coupled through a modified Kelvin equation and an entropy balance, with latent-heat transport by vapor |
 | **Poromechanics** | Biot poroelasticity on unstructured meshes, assembled once and reused across time steps |
 | **Reactive transport** | Operator splitting (SNIA) with the equilibrium of `ChemistryLab.jl`; Friedel's salt binding; surface complexation on C-S-H |
 | **Model interface** | `storage!` / `flux!` / `bcondition!` / `reaction!` for finite volumes, `element_matrices!` / `facet_load!` for finite elements |
@@ -261,7 +261,7 @@ using PoroMechanics
 # … see PoroMechanics.jl documentation and its `examples/` directory
 ```
 
-The organisation also hosts
+The organization also hosts
 [**MPCM-Registry**](https://github.com/MicroPoroChemoMechanics/MPCM-Registry),
 a Julia registry used to distribute development versions of the packages ahead
 of their General-registry releases:
