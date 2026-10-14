@@ -18,10 +18,9 @@ Every package is `ForwardDiff`-compatible, dimensionally aware via
 with the [SciML](https://sciml.ai/) ecosystem (`Optimization`,
 `OrdinaryDiffEq`, `NonlinearSolve`, `Integrals`, …).
 
-The packages `TensND.jl`, `DECUHR.jl`, `OptimaSolver.jl`, `ChemistryLab.jl`
-and `MeanFieldHomogenization.jl` are registered in Julia's **General registry**
-and install with `Pkg.add`. `PoroMechanics.jl`, the most recent addition, is not
-registered yet and installs from its repository URL.
+The six packages `TensND.jl`, `DECUHR.jl`, `OptimaSolver.jl`, `ChemistryLab.jl`,
+`MeanFieldHomogenization.jl` and `PoroMechanics.jl` are registered in Julia's
+**General registry** and install with `Pkg.add`.
 
 ---
 
@@ -44,7 +43,7 @@ on cement chemistry but applicable more broadly.
 | Feature | Details |
 |---|---|
 | **Equilibrium** | Gibbs minimization under mass-balance constraints |
-| **Activity models** | Dilute solution; HKF aqueous solutes |
+| **Activity models** | Dilute solution; extended Debye–Hückel (HKF B-dot), Davies, Truesdell–Jones, SIT and Pitzer; the Cemdata18 setting |
 | **Solid solutions** | Ideal mix, Redlich-Kister (cement-data-18 calibrated) |
 | **Kinetics** | TST, Parrot–Killoh for cement clinkers; coupled to OrdinaryDiffEq |
 | **Calorimetry** | Isothermal and semi-adiabatic models with variable Cp |
@@ -99,10 +98,10 @@ throughout.
 | Feature | Details |
 |---|---|
 | **Hill / Eshelby** | Ellipsoids, spheroids, spheres, infinite cylinders, 2-D plane strain; closed forms for isotropic and coaxial transversely isotropic matrices |
-| **Anisotropy** | Masson residue reduction and DECUHR adaptive cubature for arbitrary anisotropy; **closed form for any anisotropy** in transport (order-2) |
+| **Anisotropy** | Masson residue reduction, nested adaptive quadrature (default) and DECUHR cubature (extension) for arbitrary anisotropy; **closed form for any anisotropy** in transport (order-2) |
 | **Cracks** | COD tensor, compliance contribution, dilute correction via Budiansky density, SIF/DIF and mode decomposition; spring-like interfaces |
 | **Composite inclusions** | `n`-layer spheres (Hervé–Zaoui) and confocal spheroids; Kapitza and surface-conductive imperfect interfaces; equivalent-particle conductivity |
-| **Schemes** | Voigt/Reuss and Hashin–Shtrikman bounds, dilute, Mori–Tanaka, self-consistent, Ponte Castañeda–Willis, Maxwell, differential with loading paths; exact laminates |
+| **Schemes** | Voigt/Reuss bounds, dilute, Mori–Tanaka (the Hashin–Shtrikman bounds for spheres), self-consistent, Ponte Castañeda–Willis, Maxwell, differential with loading paths; exact laminates |
 | **N-body** | Two-inclusion interaction tensor; cluster model (Molinari & El Mouden) and equivalent inclusion method (Brisard, Dormieux & Sab) on particle assemblies, with rigorous bounds |
 | **Open morphologies** | User-defined inclusion contract; Eshelby problem solved by Ferrite / Gridap finite elements, or by a differentiable trained surrogate |
 | **Poromechanics & FE coupling** | Biot tensor and skeleton modulus; a microstructure as a Gauss-point material law returning stress, consistent tangent and an aperture-driven permeability |
@@ -114,6 +113,7 @@ throughout.
 
 ### [PoroMechanics.jl](https://github.com/MicroPoroChemoMechanics/PoroMechanics.jl) — Reactive transport and poromechanics
 
+[![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/PoroMechanics.jl/stable/)
 [![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/PoroMechanics.jl/dev/)
 
 Simulation of coupled phenomena in porous media at the macroscopic scale —
@@ -206,11 +206,11 @@ ChemistryLab.jl
   └── OptimaSolver.jl       (weakdep — equilibrium solver backend)
 
 MeanFieldHomogenization.jl
-  ├── DECUHR.jl             (adaptive cubature backend)
+  ├── DECUHR.jl             (weakdep — adaptive cubature backend)
   └── TensND.jl             (structured tensors)
 
 PoroMechanics.jl
-  ├── ChemistryLab.jl       (equilibrium + kinetics)
+  ├── ChemistryLab.jl       (weakdep — equilibrium + kinetics)
   │     └── OptimaSolver.jl
   ├── VoronoiFVM.jl         (finite volumes — transport)
   └── Ferrite.jl            (finite elements — coupled mechanics)
@@ -231,7 +231,7 @@ used outside the MPCM context.
 | `ChemistryLab.jl` | main     | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/ChemistryLab.jl) |
 | `TensND.jl`       | main     | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/TensND.jl) |
 | `MeanFieldHomogenization.jl` | main | Public | Yes | [docs](https://MicroPoroChemoMechanics.github.io/MeanFieldHomogenization.jl) |
-| `PoroMechanics.jl`| main     | Public     | Not yet              | [docs](https://MicroPoroChemoMechanics.github.io/PoroMechanics.jl/dev/) |
+| `PoroMechanics.jl`| main     | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/PoroMechanics.jl/stable/) |
 | `OptimaSolver.jl` | backend  | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl) |
 | `DECUHR.jl`       | backend  | Public     | Yes                  | [docs](https://MicroPoroChemoMechanics.github.io/DECUHR.jl) |
 
@@ -242,16 +242,13 @@ used outside the MPCM context.
 ```julia
 using Pkg
 Pkg.add(["ChemistryLab", "OptimaSolver", "DECUHR", "TensND",
-         "MeanFieldHomogenization"])
-
-# PoroMechanics.jl is not registered yet
-Pkg.add(url = "https://github.com/MicroPoroChemoMechanics/PoroMechanics.jl")
+         "MeanFieldHomogenization", "PoroMechanics"])
 
 # Compute a thermodynamic equilibrium (Portlandite dissolution)
 using ChemistryLab, OptimaSolver
 # … see ChemistryLab.jl documentation for full examples
 
-# Compute a Hill polarisation tensor for a sphere in an isotropic matrix
+# Compute a Hill polarization tensor for a sphere in an isotropic matrix
 using MeanFieldHomogenization, TensND
 C₀ = iso_stiffness_E_nu(210e3, 0.3)
 P  = hill_tensor(Ellipsoid(1.0), C₀)
