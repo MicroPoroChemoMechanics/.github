@@ -115,6 +115,7 @@ throughout.
 
 [![Docs stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MicroPoroChemoMechanics.github.io/PoroMechanics.jl/stable/)
 [![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/PoroMechanics.jl/dev/)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.23342764-blue)](https://doi.org/10.5281/zenodo.23342764)
 
 Simulation of coupled phenomena in porous media at the macroscopic scale —
 unsaturated flow, solute and multi-ionic reactive transport, cement chemistry
