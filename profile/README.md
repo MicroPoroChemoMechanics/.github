@@ -170,7 +170,7 @@ answers a KKT certificate checks. The default equilibrium backend of
 
 | Feature | Details |
 |---|---|
-| **Active set** (default) | Optima's iteration: species held on their bounds while unstable, null-space Newton step that restores the balance, basis chosen on the amounts; intensive barrier and tolerances, saddle points refused (Wächter & Biegler 2006 inertia correction) |
+| **Active set** (default) | Optima's iteration: species held on their bounds while unstable, null-space Newton step that restores the balance on a basis the matrix supports, absent components priced by the dual ratio test; intensive barrier and tolerances, saddle points refused (Wächter & Biegler 2006 inertia correction); unknown parameters (reaction extents, surface potentials) solved with the amounts |
 | **Interior point** | Log barrier, Schur-complement or null-space Newton step, stability classification, sensitivities; filter line search (Wächter & Biegler 2006) |
 | **Multiplier-space Newton** | Pure phases in an exact active set, mixing phases recovered from their mass-action laws |
 | **Certificate** | `kkt_certificate` proves the global minimum of a convex problem, whatever produced the point |
