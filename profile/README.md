@@ -160,16 +160,18 @@ cited standalone from the General registry.
 [![Docs dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MicroPoroChemoMechanics.github.io/OptimaSolver.jl/dev/)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19534031-blue)](https://doi.org/10.5281/zenodo.19534031)
 
-Gibbs-energy minimization under linear mass balances, by two solvers: a
-log-barrier interior-point method ported from the Optima C++ library by
-Allan Leal (ETH Zürich), and a Newton method on the optimality conditions in
+Gibbs-energy minimization under linear mass balances, by two solvers: the
+active-set Newton iteration of the Optima C++ library by Allan Leal (ETH
+Zürich), the one Reaktoro computes its equilibria with, with an interior-point
+method as an alternative, and a Newton method on the optimality conditions in
 the space of the conservation multipliers, original to the package, whose
 answers a KKT certificate checks. The default equilibrium backend of
 `ChemistryLab.jl`.
 
 | Feature | Details |
 |---|---|
-| **Interior point** | Ported from Optima: Schur-complement Newton step, stability classification, sensitivities; filter line search (Wächter & Biegler 2006) |
+| **Active set** (default) | Optima's iteration: species held on their bounds while unstable, null-space Newton step that restores the balance, basis chosen on the amounts; intensive barrier and tolerances, saddle points refused (Wächter & Biegler 2006 inertia correction) |
+| **Interior point** | Log barrier, Schur-complement or null-space Newton step, stability classification, sensitivities; filter line search (Wächter & Biegler 2006) |
 | **Multiplier-space Newton** | Pure phases in an exact active set, mixing phases recovered from their mass-action laws |
 | **Certificate** | `kkt_certificate` proves the global minimum of a convex problem, whatever produced the point |
 | **Phase stability** | Michelsen's tangent-plane tests, for absent and for present mixing phases |
