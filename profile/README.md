@@ -42,10 +42,10 @@ on cement chemistry but applicable more broadly.
 
 | Feature | Details |
 |---|---|
-| **Equilibrium** | Gibbs minimization under mass-balance constraints |
+| **Equilibrium** | Gibbs minimization under mass-balance constraints, returned with a certificate of what it proves |
 | **Activity models** | Dilute solution; extended Debye–Hückel (HKF B-dot), Davies, Truesdell–Jones, SIT and Pitzer; the Cemdata18 setting |
-| **Solid solutions** | Ideal mix, Redlich-Kister (cement-data-18 calibrated) |
-| **Kinetics** | TST, Parrot–Killoh for cement clinkers; coupled to OrdinaryDiffEq |
+| **Solid solutions** | Ideal mix, Redlich-Kister (cement-data-18 calibrated), sublattice and compound-energy (CASH+) models |
+| **Kinetics** | TST, Parrott–Killoh for cement clinkers; partial equilibrium coupled to OrdinaryDiffEq; for a host code, an implicit step at each node, certified or refused with its cause |
 | **Calorimetry** | Isothermal and semi-adiabatic models with variable Cp |
 | **AD** | ForwardDiff-compatible across the full pipeline |
 
@@ -175,7 +175,7 @@ answers a KKT certificate checks. The default equilibrium backend of
 | **Multiplier-space Newton** | Pure phases in an exact active set, mixing phases recovered from their mass-action laws |
 | **Certificate** | `kkt_certificate` proves the global minimum of a convex problem, whatever produced the point |
 | **Phase stability** | Michelsen's tangent-plane tests, for absent and for present mixing phases |
-| **Derivatives** | ForwardDiff through both solvers; the answer's by the implicit-function theorem |
+| **Derivatives** | ForwardDiff through every method; the answer's by the implicit-function theorem |
 | **SciML** | `OptimaOptimizer <: SciMLBase.AbstractOptimizationAlgorithm` |
 
 ---
