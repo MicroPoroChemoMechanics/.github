@@ -67,9 +67,10 @@ across the MicroPoroChemoMechanics stack.
 |---|---|
 | **Tensors** | `TensISO`, `TensWalpole`, `TensTI`, `TensOrtho`, generic `Tens` — symmetry-aware storage with closed-form products and inverses |
 | **Bases** | Canonical, rotated, orthogonal, general (non-orthogonal, symbolic) |
-| **Coord. systems** | Cartesian, polar, cylindrical, spherical, spheroidal, user-defined |
+| **Coord. systems** | Cartesian, polar, cylindrical, spherical, spheroidal, ellipsoidal, toroidal, user-defined |
 | **Differential ops** | `GRAD`, `SYMGRAD`, `DIV`, `LAPLACE`, `HESS` via Christoffel symbols, symbolic or by AD |
-| **Symmetry projection** | Closest ISO / TI / ORTHO tensor, orientation given or optimized |
+| **Symmetry projection** | Closest ISO / TI / CUBIC / ORTHO tensor, orientation given or optimized, in the Euclidean, log-Euclidean or Riemannian distance (`tensor_distance`, `closest_tensor`) |
+| **Plane states** | Plane-strain and plane-stress stiffness of isotropic and transversely isotropic materials, and the return to 3-D |
 | **Submanifolds** | Embedded hypersurfaces with fundamental forms, connection and curvatures |
 | **AD** | ForwardDiff-compatible end-to-end |
 
